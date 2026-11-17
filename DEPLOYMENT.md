@@ -58,7 +58,12 @@ Use **one Pixelforge API key for the deployed environment** and another for loca
     https://<your-app-domain>/webhooks/pixelforge
     ```
     Press **Send test event**. The dashboard should record a `204` response.
-9. Generate a few images from the demo account so the deployed app has history and usage to inspect.
+9. Generate a few images from the demo account so the deployed app has history and usage to inspect:
+   ```bash
+   php artisan pixelforge:demo
+   php artisan pixelforge:poll
+   ```
+   `pixelforge:demo` queues three successful images (low, medium with a reference, high) plus one deliberate `[fail]` generation, all with `[succeed]`/`[fail]` so the result is deterministic.
 10. Update the live URL in `README.md` and submit it.
 
 ## Option B - Railway (Docker)
