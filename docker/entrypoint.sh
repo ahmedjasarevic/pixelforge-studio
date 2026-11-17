@@ -27,6 +27,10 @@ if [ "${RUN_MIGRATIONS:-true}" = "true" ]; then
     if [ "${RUN_SEEDER:-false}" = "true" ]; then
         php artisan db:seed --force
     fi
+
+    if [ "${RUN_DEMO_GENERATIONS:-false}" = "true" ]; then
+        php artisan pixelforge:demo --force
+    fi
 fi
 
 exec "$@"

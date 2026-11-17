@@ -38,7 +38,8 @@ WORKDIR /var/www/html
 COPY . .
 COPY --from=assets /app/public/build ./public/build
 
-RUN composer install \
+RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs \
+    && composer install \
         --no-dev \
         --no-interaction \
         --prefer-dist \

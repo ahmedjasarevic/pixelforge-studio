@@ -31,6 +31,7 @@ No uploaded files or persistent disk are required: generated images stay on Pixe
 | `LOG_CHANNEL`                    | no          | `stderr` in Docker                                                                        |
 | `RUN_MIGRATIONS`                 | Docker only | `true` on the web role, `false` on worker/scheduler                                       |
 | `RUN_SEEDER`                     | Docker only | `true` on the first deploy if you want the demo/admin accounts                            |
+| `RUN_DEMO_GENERATIONS`           | Docker only | `true` once to queue three demo images and one `[fail]` generation                         |
 | `ROLE`                           | Docker only | `web` (default), `worker`, or `scheduler`                                                 |
 
 \* Use either `DB_URL` or the individual `DB_*` values.
@@ -72,7 +73,7 @@ The included `Dockerfile` builds assets and the PHP application. Railway injects
 
 1. Create a Railway project from the GitHub repository and add a **PostgreSQL** plugin.
 2. Set the service variables using the table above. For the database, set `DB_URL` to Railway's `DATABASE_URL` reference (or the individual `DB_*` variables).
-3. Set `ROLE=web`, `RUN_MIGRATIONS=true`, and `RUN_SEEDER=true` on the first deploy.
+3. Set `ROLE=web`, `RUN_MIGRATIONS=true`, `RUN_SEEDER=true`, and optionally `RUN_DEMO_GENERATIONS=true` on the first deploy.
 4. Generate a public domain under **Settings → Networking** and set `APP_URL` to it.
 5. Duplicate the service twice:
     - **worker**: `ROLE=worker`, `RUN_MIGRATIONS=false`, `RUN_SEEDER=false`
