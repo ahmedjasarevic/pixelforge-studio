@@ -31,7 +31,7 @@ No uploaded files or persistent disk are required: generated images stay on Pixe
 | `LOG_CHANNEL`                    | no          | `stderr` in Docker                                                                        |
 | `RUN_MIGRATIONS`                 | Docker only | `true` on the web role, `false` on worker/scheduler                                       |
 | `RUN_SEEDER`                     | Docker only | `true` on the first deploy if you want the demo/admin accounts                            |
-| `RUN_DEMO_GENERATIONS`           | Docker only | `true` once to queue three demo images and one `[fail]` generation                         |
+| `RUN_DEMO_GENERATIONS`           | Docker only | `true` once to queue three demo images and one `[fail]` generation                        |
 | `ROLE`                           | Docker only | `web` (default), `worker`, or `scheduler`                                                 |
 
 \* Use either `DB_URL` or the individual `DB_*` values.

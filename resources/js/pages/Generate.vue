@@ -137,6 +137,7 @@ const canSubmit = computed(
     () =>
         props.pricing_error === null &&
         estimate.value !== null &&
+        promptText.value.trim() !== '' &&
         !processing.value &&
         !notEnoughCredits.value,
 );
