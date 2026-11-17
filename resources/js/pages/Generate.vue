@@ -256,7 +256,7 @@ function submit(): void {
     <Head title="Generate" />
 
     <div
-        class="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 p-4 pb-24 md:p-6 lg:pb-6"
+        class="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 p-4 pb-24 md:p-6 md:pb-24 lg:pb-6"
     >
         <header class="flex flex-wrap items-start justify-between gap-3">
             <div>

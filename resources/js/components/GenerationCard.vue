@@ -168,7 +168,10 @@ const usageLabel = computed(() => {
                 class="absolute right-3 bottom-3 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur"
             >
                 {{ sizeLabels[generation.size] ?? generation.size }} ·
-                {{ generation.quality }}
+                {{ generation.quality
+                }}<template v-if="generation.reference_images.length > 0">
+                    · {{ generation.reference_images.length }} ref</template
+                >
             </span>
         </div>
 
@@ -219,6 +222,9 @@ const usageLabel = computed(() => {
                             class="rounded-full bg-emerald-50 px-2 py-0.5 font-medium text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
                             >Free — not charged</span
                         >
+                        <span class="text-muted-foreground">
+                            est. {{ generation.estimated_charge_formatted }}
+                        </span>
                     </template>
                     <template v-else>
                         <span class="text-muted-foreground">
